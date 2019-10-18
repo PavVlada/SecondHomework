@@ -50,6 +50,7 @@ class FragmentActivity : AppCompatActivity() {
         attachFragmentButton.setOnClickListener() {
             str = textField.getText().toString()
             val fragmentManager = supportFragmentManager
+
             fragmentManager.beginTransaction()
                 .add(R.id.fragment_container, fragment)
                 .addToBackStack("fragment")
@@ -60,6 +61,8 @@ class FragmentActivity : AppCompatActivity() {
             arg.putBoolean("CLICK_KEY", isClicked)
             arg.putString("TEXT_KEY", str)
             fragment.arguments = arg
+            
+            attachFragmentButton.setEnabled(false)
         }
 
     }
